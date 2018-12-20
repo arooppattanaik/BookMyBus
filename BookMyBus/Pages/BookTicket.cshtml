@@ -1,0 +1,62 @@
+﻿@page
+@model BookTicketModel
+@{
+}
+
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/css/uikit.min.css" />
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.17/js/uikit-icons.min.js"></script>
+<body style="background-color:LightBlue;">
+</body>
+<h2 class="uk-heading-line uk-text-center"><span>Ticket Information</span></h2>
+<div class="row" style="background-color:lightblue">
+    <div class="col-md-6 col-md-offset-3">
+        <form method="post" style="margin-top: 50px;">
+            
+           <div class="form-group">
+                 <label class="control-label" asp-for="Ticket.SeatNumber">SeatNumber:</label>
+            <input type="text" class="form-control" asp-for="Ticket.SeatNumber" id="Tseatnember" />
+            </div>
+
+            <div class="form-group">
+            <label class="control-label" asp-for="Ticket.Price">Price:</label>
+            <input type="text" class="form-control" asp-for="Ticket.Price" id="Tprice" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Ticket.DateOfBooking" class="control-label"></label>
+                <input asp-for="Ticket.DateOfBooking" class="form-control" />
+                <span asp-validation-for="Ticket.DateOfBooking" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+            <label class="control-label" asp-for="Ticket.DateOfJounery">Date Of Journey:</label>
+            <input type="date" class="form-control" asp-for="Ticket.DateOfJounery" id="Tdateofjourney" />
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="Ticket.BusRouteId" class="control-label"></label>
+                <select asp-for="Ticket.BusRouteId" class ="form-control" asp-items="ViewBag.BusRouteId"></select>
+            </div>
+
+
+
+            
+           
+        
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Submit Review" class="btn btn-danger" />
+            </div>
+
+           
+
+        </form>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+@page
+@model BookMyBus.Pages.BusRoutes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<body style="background-color:LightBlue;">
+</body>
+<h2>Edit</h2>
+
+<h4>BusRoute</h4>
+<hr />
+<div class="row" style="background-color:lightblue">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="BusRoute.Id" />
+            <div class="form-group">
+                <label asp-for="BusRoute.Source" class="control-label"></label>
+                <input asp-for="BusRoute.Source" class="form-control" />
+                <span asp-validation-for="BusRoute.Source" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusRoute.Destination" class="control-label"></label>
+                <input asp-for="BusRoute.Destination" class="form-control" />
+                <span asp-validation-for="BusRoute.Destination" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusRoute.DateOfJounery" class="control-label"></label>
+                <input asp-for="BusRoute.DateOfJounery" class="form-control" />
+                <span asp-validation-for="BusRoute.DateOfJounery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusRoute.BusNumber" class="control-label"></label>
+                <input asp-for="BusRoute.BusNumber" class="form-control" />
+                <span asp-validation-for="BusRoute.BusNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusRoute.TotalNumberOfTickets" class="control-label"></label>
+                <input asp-for="BusRoute.TotalNumberOfTickets" class="form-control" />
+                <span asp-validation-for="BusRoute.TotalNumberOfTickets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BusRoute.DateOfBooking" class="control-label"></label>
+                <input asp-for="BusRoute.DateOfBooking" class="form-control" />
+                <span asp-validation-for="BusRoute.DateOfBooking" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

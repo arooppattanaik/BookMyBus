@@ -1,0 +1,61 @@
+@page
+@model BookMyBus.Pages.Tickets.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<body style="background-color:LightBlue;">
+</body>
+<h2>Tickets</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr bgcolor="#7A91DE">
+            <th>
+                @Html.DisplayNameFor(model => model.Ticket[0].SeatNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ticket[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ticket[0].DateOfBooking)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ticket[0].DateOfJounery)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ticket[0].BusRoute)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Ticket) {
+        <tr bgcolor="#E6E6FA">
+            <td>
+                @Html.DisplayFor(modelItem => item.SeatNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBooking)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfJounery)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusRoute.Id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

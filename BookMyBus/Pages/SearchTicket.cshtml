@@ -1,0 +1,64 @@
+﻿@page
+@model SearchTicketModel
+@{
+}
+<body style="background-color:LightBlue;">
+</body>
+ <form action="" method="POST" style="margin-top: 50px;">
+      <div class="form-group">
+        <label class="control-label" for="search">Ticket Details</label>
+        <input type="text" class="form-control" name="search" id="search" />
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Search Ticket" class="btn btn-default" />
+      </div>
+    </form>
+
+
+
+
+@if(Model.SearchCompleted) {
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr bgcolor="#7A91DE">
+                <th>Seat Number</th>
+                <th>Ticket Price</th>
+                <th>Date Of Booking</th>
+                <th>Date Of Jounery</th>
+                <th>Name</th>
+                <th>Bus Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model.SearchResults.Count > 0) {
+                @foreach(var ticket in Model.SearchResults) {
+                    <tr bgcolor="#E6E6FA">
+                        <td>@ticket.SeatNumber</td>
+                    
+                             <td>@ticket.Price</td>
+                        
+                        <td>@ticket.DateOfBooking</td>
+                             <td>@ticket.DateOfJounery</td>
+                                  <td>@ticket.Customer.Name</td>
+                                       <td>@ticket.BusRoute.BusNumber</td>
+                                           
+                       
+                    </tr>
+                }
+            } else {
+                <tr class="danger">
+                    <td colspan="4" class="text-center">
+                        No results found for term "@Model.Search"
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+} else {
+    <div class="alert alert-info">
+        <p>
+            Enter the ticket number into the box and click <strong>Search Ticket Details</strong>
+
+</p>
+    </div>
+}

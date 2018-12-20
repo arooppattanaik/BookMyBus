@@ -1,0 +1,50 @@
+@page
+@model BookMyBus.Pages.Customers.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+<body style="background-color:LightBlue;">
+</body>
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.PhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.PhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.DateOfBirth)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.DateOfBirth)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.Gender)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Gender)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer.Ticket)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Customer.Ticket.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Customer.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

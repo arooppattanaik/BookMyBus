@@ -1,0 +1,42 @@
+﻿@page
+@model DisplayBusModel
+@{
+}
+<h1 align="middle">Buses</h1>
+<body style="background-color:LightBlue;">
+</body>
+<table class="table table-bordered table-striped">
+        <thead>
+            <tr bgcolor="#7A91DE">
+                <th>ID</th>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Date of Journey</th>
+                <th>Bus Number</th>
+                <th>Total Number of Tickets</th>
+                
+                <th>Bus Status</th>
+
+                
+
+            </tr>
+        </thead>
+        <tbody>
+           @foreach(var bus in Model.BusRoute){
+                    <tr bgcolor="#E6E6FA"> 
+                  
+  <td><a href="/ShowTicket?Id=@bus.Id">@bus.Id</a></td>
+
+                    <td><a href="/ShowTicket?Id=@bus.Id">@bus.Source</a></td>
+    
+                <td><a href="/ShowTicket?Id=@bus.Id">@bus.Destination</a></td>
+                <td><a href="/ShowTicket?Id=@bus.Id">@bus.DateOfJounery</a></td>
+                <td><a href="/ShowTicket?Id=@bus.Id">@bus.BusNumber</a></td>
+                <td><a href="/ShowTicket?Id=@bus.Id">@bus.TotalNumberOfTickets</a></td>
+                <td><a href="/ShowTicket?Id=@bus.Id">@bus.BusStatus</a></td>
+            
+        </tr>
+            }
+ 
+        </tbody>
+</table>

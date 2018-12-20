@@ -1,0 +1,55 @@
+@page
+@model BookMyBus.Pages.Tickets.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<body style="background-color:LightBlue;">
+</body>
+<h2>Create</h2>
+
+<h4>Ticket</h4>
+<hr />
+<div class="row" style="background-color:lightblue">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Ticket.SeatNumber" class="control-label"></label>
+                <input asp-for="Ticket.SeatNumber" class="form-control" />
+                <span asp-validation-for="Ticket.SeatNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.Price" class="control-label"></label>
+                <input asp-for="Ticket.Price" class="form-control" />
+                <span asp-validation-for="Ticket.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.DateOfBooking" class="control-label"></label>
+                <input asp-for="Ticket.DateOfBooking" class="form-control" />
+                <span asp-validation-for="Ticket.DateOfBooking" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.DateOfJounery" class="control-label"></label>
+                <input asp-for="Ticket.DateOfJounery" class="form-control" />
+                <span asp-validation-for="Ticket.DateOfJounery" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.BusRouteId" class="control-label"></label>
+                <select asp-for="Ticket.BusRouteId" class ="form-control" asp-items="ViewBag.BusRouteId"></select>
+                <span asp-validation-for="Ticket.BusRouteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

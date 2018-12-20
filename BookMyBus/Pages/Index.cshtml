@@ -1,0 +1,104 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h2 style="color:blue;" align = "middle">BookMyBus</h2>
+<h3 align="middle"><body style="background-color:powderblue;">
+<p style="color:Brown;">Enjoy the luxury ride. We connect all the big cities in the United States.</p>
+</body></h3>
+
+<div class="col-md-5">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3>Why choose BookMyBus?</h3>
+            </div>
+            <div class="panel-body">
+                <h4>
+                    <ul>Number of Tickets Booked:  @Model.TicketsCount</ul> 
+                      <ul>Number of Bus Routes we operate:  @Model.BusCount</ul> 
+                        <ul>Number of Customers Served:  @Model.CustomerCount</ul> 
+                        <ul>Number of cities we operate:  @Model.CitiesCount</ul> 
+                </h4>
+              <b> Already booked Ticket? <a href="https://localhost:5001/SearchTicket">Get Details</a></b> 
+            </div>    
+        </div>    
+        </div>    
+
+        
+
+<img src="http://www.prevost-stuff.com/new_coaches_september2018.gif"
+          alt="Image" height="420" width="665">
+
+
+<form action="" method="POST" style="margin-top: 50px;">
+      <div class="form-group">
+        <label class="control-label" for="search">Source</label>
+        <input type="text" class="form-control" name="search" id="search" />
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Search Bus Routes" class="btn btn-default" />
+      </div>
+    </form>
+
+
+
+
+@if(Model.SearchCompleted) {
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Source</th>
+                <th>Destination</th>
+                <th>Date Of Jounery</th>
+                <th>BusNumber</th>
+                <th>Total Number Of Tickets</th>
+                <th>Date Of Booking</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if(Model.SearchResults.Count > 0) {
+                @foreach(var busRoute in Model.SearchResults) {
+                    <tr>
+                        <td>@busRoute.Source</td>
+                    
+                             <td>@busRoute.Destination</td>
+                        
+                        <td>@busRoute.DateOfJounery</td>
+                             <td>@busRoute.BusNumber</td>
+                                  <td>@busRoute.TotalNumberOfTickets</td>
+                                            <td>@busRoute.DateOfBooking</td>
+                       
+                    </tr>
+                }
+            } else {
+                <tr class="danger">
+                    <td colspan="4" class="text-center">
+                        No results found for term "@Model.Search"
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+} else {
+    <div class="alert alert-info">
+        <p>
+            Enter the your current city to check for available routes <strong>Search Bus Routes</strong>
+
+</p>
+    </div>
+}
+
+
+ 
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+﻿@page
+@model ShowTicketModel
+@{
+}
+<h3 align="middle">Ticket Details</h3>
+<body style="background-color:LightBlue;">
+</body>
+<table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Seat Number</th>
+                <th>Price</th>
+                <th>Data of Booking</th>
+               
+                <th>Date Of Journey</th>
+                
+                  <th>Ticket Class</th>
+                
+
+            </tr>
+        </thead>
+        <tbody>
+           @foreach(var ticket in Model.Ticket){
+
+                <tr>
+                    <td>@ticket.Id</td>
+                    <td>@ticket.SeatNumber</td>
+                    <td>@ticket.Price</td>
+                    <td>@ticket.DateOfBooking</td>
+                    <td>@ticket.DateOfJounery</td>
+                    <td>@ticket.TicketClass</td>
+
+                </tr>
+            }
+        </tbody>
+</table>
